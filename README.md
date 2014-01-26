@@ -14,10 +14,16 @@ Done:
 
     Found/converted music files for battle, boss battle, and general dungeon soundtrack.
 
+    Added corner rendering for left/right empty walls
+    
+    Added sound effects for walking/turning
+    
+    Added background music
+    
+    Added lighting (shades of grey/black in reference to the player)
+
 
 To Do:
-
-    Add corner rendering for left/right empty walls
 
     Map out dungeon
 
@@ -35,6 +41,4 @@ To Do:
     
     Music - use Java Clips
 
-        Sound effects for walking/battling?
-    
-    Implement colors/lighting/textures? (on walls/ceiling/floor, make render-depth-darkness smoother and make sense)
+        Sound effects for battling?
