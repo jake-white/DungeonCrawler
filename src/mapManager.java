@@ -434,7 +434,7 @@ public class mapManager {
 				advance = 1;
 				left = true;
 				right = true;
-				back = true;
+				back = false;
 				left1 = true;
 				right1 = true;
 				left2 = false;
@@ -454,6 +454,118 @@ public class mapManager {
 				break;
 			case 'b':
 				sideOfHallway();
+				break;
+			}
+
+		}else if (roomno == 14) {
+			switch (facing) {
+			case 'f':
+				sideOfHallway();
+				break;
+			case 'l':
+				advance = 1;
+				left = true;
+				right = true;
+				back = false;
+				left1 = false;
+				right1 = true;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 2;
+				break;
+			case 'r':
+				advance = -1;
+				left = true;
+				right =true;
+				back = false;
+				left1 = true;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 2;
+				break;
+			case 'b':
+				sideOfHallway();
+				break;
+			}
+
+		}else if (roomno == 15) {
+			switch (facing) {
+			case 'f':
+				sideOfHallway();
+				break;
+			case 'l':
+				advance = 1;
+				left = false;
+				right = true;
+				back = false;
+				left1 = false;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 1;
+				break;
+			case 'r':
+				advance = -1;
+				left = true;
+				right =true;
+				back = false;
+				left1 = true;
+				right1 = true;
+				left2 = true;
+				right2 = false;
+				polygonManager.distance = 3;
+				break;
+			case 'b':
+				sideOfHallway();
+				break;
+			}
+
+		}else if (roomno == 16) {
+			switch (facing) {
+			case 'f':
+				advance = -1;
+				left = false;
+				right = false;
+				back = false;
+				left1 = false;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 0;
+				break;
+			case 'l':
+				advance = 0;
+				left = false;
+				right = false;
+				back = false;
+				left1 = false;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 0;
+				break;
+			case 'r':
+				advance = -1;
+				left = true;
+				right =true;
+				back = false;
+				left1 = true;
+				right1 = true;
+				left2 = true;
+				right2 = true;
+				polygonManager.distance = 4;
+				break;
+			case 'b':
+				advance = 1;
+				left = true;
+				right =true;
+				back = true;
+				left1 = true;
+				right1 = false;
+				left2 = true;
+				right2 = true;
+				polygonManager.distance = 4;
 				break;
 			}
 

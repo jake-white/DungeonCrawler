@@ -58,16 +58,19 @@ public class polygonManager {
 			drawings.left_ext = new Polygon(left_extpoints2,ext_ypoints2,
 					4);
 		else
-			drawings.left_ext = new Polygon(left_extpoints1, ext_ypoints1,
+			drawings.left_ext = new Polygon(left_extpoints1, ext_ypoints,
 					4);
 		if(right_ext)
-			drawings.left_ext = new Polygon(right_extpoints, ext_ypoints,
+			drawings.right_ext = new Polygon(right_extpoints, ext_ypoints,
 					4);
 		else if(right_ext1)
-			drawings.left_ext = new Polygon(right_extpoints1, ext_ypoints1,
+			drawings.right_ext = new Polygon(right_extpoints1, ext_ypoints1,
 					4);
 		else if(right_ext2)
-			drawings.left_ext = new Polygon(right_extpoints2, ext_ypoints2,
+			drawings.right_ext = new Polygon(right_extpoints2, ext_ypoints2,
+					4);
+		else
+			drawings.right_ext = new Polygon(right_extpoints1, ext_ypoints,
 					4);
 		leftextension = 0;
 		rightextension = 0;
@@ -119,7 +122,6 @@ public class polygonManager {
 				&& distance > 0) {
 			time = System.currentTimeMillis();
 			musicManager.soundeffect(new File ("resources/walk.wav"));
-			--distance;
 			if(mapManager.advance == 1)
 			++mapManager.roomno;
 			else if(mapManager.advance == -2)
