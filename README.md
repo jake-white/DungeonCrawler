@@ -25,20 +25,20 @@ Done:
 
 To Do:
 
-    Map out dungeon
+Map out dungeon
 
-    Implement lever-open-door scenario
+Implement lever-open-door scenario
 
-        Find/make images of lever and door, figure out how to display those BufferedImage .pngs in context
+Find/make images of lever and door, figure out how to display those BufferedImage .pngs in context
     
-    Implement turn-based battle System
+Implement turn-based battle System
 
-        Implement random encounters
+Implement random encounters
     
-        Find/make enemies and images
+Find/make enemies and images
     
-        Implement final boss
+Implement final boss
     
-    Music - use Java Clips
+Music - use Java Clips
 
-        Sound effects for battling?
+Sound effects for battling?
