@@ -17,6 +17,8 @@ Done:
 
 To Do:
 
+    Add corner rendering for left/right empty walls
+
     Map out dungeon
 
     Implement lever-open-door scenario
