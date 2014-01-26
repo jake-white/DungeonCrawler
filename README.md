@@ -1,7 +1,10 @@
 DungeonCrawler
 ==============
 Author: /u/squirrelboy1225
-Description: Noobish 2D First-person dungeon crawler. Awful map editing and management, trying to squeeze out a small 41-room dungeon I have designed using pen & paper.
+
+Description: Noobish 2D First-person dungeon crawler.
+
+Awful map editing and management, trying to squeeze out a small 41-room dungeon I have designed using pen & paper.
 
 Done:
 
