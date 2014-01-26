@@ -11,8 +11,10 @@ public class dungeonPanel extends JPanel {
 
 	public void paintComponent(Graphics g) {
 		mapManager.wallManager();
-		g.setColor(Color.darkGray);
-		g.fillRect(0, 0, 500, 400);
+		g.setColor(drawings.ceiling);
+		g.fillRect(0, 0, 500, 200);
+		g.setColor(drawings.floor);
+		g.fillRect(0, 200, 500, 200);
 		Graphics g2d = (Graphics2D) g;
 		AffineTransform saveTransform = ((Graphics2D) g2d).getTransform();
 		AffineTransform scaleMatrix_left = new AffineTransform();
