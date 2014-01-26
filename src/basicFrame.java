@@ -1,4 +1,5 @@
 import java.awt.Container;
+import java.io.File;
 
 import javax.swing.*;
 
@@ -18,5 +19,6 @@ public class basicFrame {
 		frame.setVisible(true);
 		polygonManager.init();
 		jpanel.itimer.start();
+		musicManager.background(new File("resources/reactor.wav"));
 	}
 }
