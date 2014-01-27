@@ -39,6 +39,6 @@ To Do:
     
         Implement final boss
     
-Music - use Java Clips
+    Music - use Java Clips
 
-    Sound effects for battling?
+        Sound effects for battling?
