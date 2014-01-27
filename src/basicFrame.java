@@ -9,9 +9,11 @@ public class basicFrame {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		frame.setSize(517, 440);
+		frame.setSize(507, 430);
 		frame.setTitle("Dungeon Crawler");
+		frame.setLocation(5, 5);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
 		Container pane = frame.getContentPane();
 		pane.add(jpanel);
 		frame.addKeyListener(input);
@@ -20,5 +22,7 @@ public class basicFrame {
 		polygonManager.init();
 		jpanel.itimer.start();
 		musicManager.background(new File("resources/reactor.wav"));
+		imageManager.loadBufferedImage();
+		long start_time = System.currentTimeMillis();
 	}
 }

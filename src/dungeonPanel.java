@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.*;
+import java.awt.image.BufferedImage;
 
 import javax.swing.*;
 
@@ -12,9 +13,9 @@ public class dungeonPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		mapManager.wallManager();
 		g.setColor(drawings.ceiling);
-		g.fillRect(0, 0, 500, 200);
+		g.fillRect(0, 0, 501, 200);
 		g.setColor(drawings.floor);
-		g.fillRect(0, 200, 500, 200);
+		g.fillRect(0, 200, 501, 201);
 		Graphics g2d = (Graphics2D) g;
 		AffineTransform saveTransform = ((Graphics2D) g2d).getTransform();
 		AffineTransform scaleMatrix_left = new AffineTransform();
@@ -76,6 +77,9 @@ public class dungeonPanel extends JPanel {
 				g.setColor(drawings.lighting_gray2);
 		} else
 			g.setColor(Color.BLACK);
+		if (mapManager.roomno == 18 && mapManager.facing == 'l'
+				&& !mapManager.gate)
+			g.setColor(Color.GREEN);
 		g.fillPolygon(drawings.currentforward);
 		g.setColor(Color.BLACK);
 		g.drawPolygon(drawings.currentforward);
@@ -96,37 +100,47 @@ public class dungeonPanel extends JPanel {
 			}
 		}
 		if (polygonManager.left_ext || polygonManager.left_ext1
-				|| polygonManager.left_ext2)
-		{
-			if(polygonManager.left_ext)
+				|| polygonManager.left_ext2) {
+			if (polygonManager.left_ext)
 				g.setColor(drawings.lighting_gray);
-			else if(polygonManager.left_ext1)
+			else if (polygonManager.left_ext1)
 				g.setColor(drawings.lighting_gray1);
-			else if(polygonManager.left_ext2)
+			else if (polygonManager.left_ext2)
 				g.setColor(drawings.lighting_gray2);
 			g.fillPolygon(drawings.left_ext);
 			g.setColor(Color.BLACK);
 			g.drawPolygon(drawings.left_ext);
 		}
 		if (polygonManager.right_ext || polygonManager.right_ext1
-				|| polygonManager.right_ext2)
-		{
-			if(polygonManager.right_ext)
+				|| polygonManager.right_ext2) {
+			if (polygonManager.right_ext)
 				g.setColor(drawings.lighting_gray);
-			else if(polygonManager.right_ext1)
+			else if (polygonManager.right_ext1)
 				g.setColor(drawings.lighting_gray1);
-			else if(polygonManager.right_ext2)
+			else if (polygonManager.right_ext2)
 				g.setColor(drawings.lighting_gray2);
 			g.fillPolygon(drawings.right_ext);
 			g.setColor(Color.BLACK);
 			g.drawPolygon(drawings.right_ext);
+			
+		}if (mapManager.roomno == 18 && mapManager.facing == 'l'
+				&& mapManager.gate) {
+			Image scaledImage = imageManager.gate1.getScaledInstance(500,
+					400, Image.SCALE_FAST);
+			g.drawImage(scaledImage, 0, 0, 500, 400, null);
+		} else if (mapManager.roomno == 18 && mapManager.facing == 'l'
+				&& !mapManager.gate) {
+			Image scaledImage = imageManager.gate2.getScaledInstance(500,
+					400, Image.SCALE_FAST);
+			g.drawImage(scaledImage, 0, 0, 500, 400, null);
 		}
 		g.setColor(Color.RED);
 		g.drawRect(50, 0, 300, 50);
 		g.drawString("distance = " + polygonManager.distance, 60, 10);
 		g.drawString("room# = " + mapManager.roomno, 140, 10);
-		g.drawString("facing = " + mapManager.facing, 200, 10);
+		g.drawString("facing = " + mapManager.facing, 220, 10);
 		g.drawString("advance = " + mapManager.advance, 60, 30);
+		g.drawString("gate = " + mapManager.gate, 150, 30);
 
 	}
 

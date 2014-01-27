@@ -5,6 +5,7 @@ public class mapManager {
 			only_rightext;
 	static char facing = 'f';
 	static int advance = 0;
+	public static boolean gate = true;
 
 	public static void wallManager() {
 		if (roomno == 1) {
@@ -566,6 +567,166 @@ public class mapManager {
 				left2 = true;
 				right2 = true;
 				polygonManager.distance = 4;
+				break;
+			}
+
+		}else if (roomno == 17) {
+			switch (facing) {
+			case 'f':
+				advance = -1;
+				left = true;
+				right = false;
+				back = false;
+				left1 = false;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 1;
+				break;
+			case 'l':
+				sideOfHallway();
+				break;
+			case 'r':
+				sideOfHallway();
+				break;
+			case 'b':
+				advance = 1;
+				left = true;
+				right =false;
+				back = false;
+				left1 = true;
+				right1 = true;
+				left2 = true;
+				right2 = false;
+				polygonManager.distance = 3;
+				break;
+			}
+
+		}else if (roomno == 18) {
+			switch (facing) {
+			case 'f':
+				advance = -1;
+				left = true;
+				right = true;
+				back = false;
+				left1 = true;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 2;
+				break;
+			case 'l':
+				advance = -4;
+				left = true;
+				right = true;
+				back = true;
+				left1 = true;
+				right1 = true;
+				left2 = true;
+				right2 = true;
+				polygonManager.distance = 3;
+				break;
+			case 'r':
+				advance = -5;
+				left = false;
+				right = false;
+				back = false;
+				left1 = false;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 0;
+				break;
+			case 'b':
+				advance = 1;
+				left = true;
+				right =true;
+				back = false;
+				left1 = true;
+				right1 = false;
+				left2 = true;
+				right2 = true;
+				polygonManager.distance = 2;
+				break;
+			}
+
+		}else if (roomno == 19) {
+			switch (facing) {
+			case 'f':
+				advance = -1;
+				left = false;
+				right = true;
+				back = false;
+				left1 = true;
+				right1 = true;
+				left2 = true;
+				right2 = false;
+				polygonManager.distance = 3;
+				break;
+			case 'l':
+				sideOfHallway();
+				break;
+			case 'r':
+				sideOfHallway();
+				break;
+			case 'b':
+				advance = 1;
+				left = true;
+				right =false;
+				back = false;
+				left1 = false;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 1;
+				break;
+			}
+
+		}else if (roomno == 20) {
+			switch (facing) {
+			case 'f':
+				advance = -1;
+				left = true;
+				right = true;
+				back = true;
+				left1 = false;
+				right1 = true;
+				left2 = true;
+				right2 = true;
+				polygonManager.distance = 4;
+				break;
+			case 'l':
+				advance = 1;
+				left = true;
+				right = true;
+				back = true;
+				left1 = false;
+				right1 = true;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 2;
+				break;
+			case 'r':
+				advance = -1;
+				left = false;
+				right = false;
+				back = false;
+				left1 = false;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 0;
+				break;
+			case 'b':
+				advance = 0;
+				left = false;
+				right =false;
+				back = false;
+				left1 = false;
+				right1 = false;
+				left2 = false;
+				right2 = false;
+				polygonManager.distance = 0;
 				break;
 			}
 

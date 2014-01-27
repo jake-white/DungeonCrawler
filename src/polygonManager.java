@@ -93,39 +93,38 @@ public class polygonManager {
 				rightextension = 50;
 			length = 200;
 			height = 100;
-		} else if (distance == 3) {
+		} else if (distance >= 3) {
 			if(!mapManager.left2)
 				leftextension = 25;
 			if(!mapManager.right2)
 				rightextension = 25;
 			length = 150;
 			height = 50;
-		}
-		else if(distance >= 3)
-		{
 			length = 150;
 			height = 50;
 			if(!mapManager.left)
 				left_ext = true;
 			if(!mapManager.right)
 				right_ext = true;
-			if(!mapManager.left1)
+			if(!mapManager.left1 && distance > 3)
 				left_ext1 = true;
-			if(!mapManager.right1)
+			if(!mapManager.right1 && distance > 3)
 				right_ext1 = true;
-			if(!mapManager.left2)
+			if(!mapManager.left2 && distance > 3)
 				left_ext2 = true;
-			if(!mapManager.right2)
+			if(!mapManager.right2 && distance > 3)
 				right_ext2 = true;			
 		}
 		if (inputManager.input('w') && System.currentTimeMillis() > time + 300
-				&& distance > 0) {
+				&& distance > 0 && !(mapManager.roomno == 18 && mapManager.facing == 'l' && mapManager.gate)) {
 			time = System.currentTimeMillis();
 			musicManager.soundeffect(new File ("resources/walk.wav"));
 			if(mapManager.advance == 1)
 			++mapManager.roomno;
 			else if(mapManager.advance == -2)
 				mapManager.roomno = 38;
+			else if(mapManager.advance == -4)
+				mapManager.roomno = 39;
 			else
 			--mapManager.roomno;
 		} else if (inputManager.input('s')
