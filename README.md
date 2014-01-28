@@ -21,15 +21,15 @@ Done:
     Added background music
     
     Added lighting (shades of grey/black in reference to the player)
+    
+    Completed mapping!
+    
+    Added gate & key system with BufferedImages
+    
+    Added "inventory" -- at this point, only for the key -- that displays in a sidebar
 
 
 To Do:
-
-    Map out dungeon
-
-    Implement lever-open-door scenario
-
-        Find/make images of lever and door, figure out how to display those BufferedImage .pngs in context
     
     Implement turn-based battle System
 
@@ -38,7 +38,5 @@ To Do:
         Find/make enemies and images
     
         Implement final boss
-    
-    Music - use Java Clips
 
         Sound effects for battling?
