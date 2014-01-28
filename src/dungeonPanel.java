@@ -16,6 +16,8 @@ public class dungeonPanel extends JPanel {
 		g.fillRect(0, 0, 501, 200);
 		g.setColor(drawings.floor);
 		g.fillRect(0, 200, 501, 201);
+		g.setColor(Color.darkGray);
+		g.fillRect(505, 0, 50, 410);
 		Graphics g2d = (Graphics2D) g;
 		AffineTransform saveTransform = ((Graphics2D) g2d).getTransform();
 		AffineTransform scaleMatrix_left = new AffineTransform();
@@ -77,7 +79,7 @@ public class dungeonPanel extends JPanel {
 				g.setColor(drawings.lighting_gray2);
 		} else
 			g.setColor(Color.BLACK);
-		if (mapManager.roomno == 18 && mapManager.facing == 'l'
+		if ((mapManager.roomno == 18 || mapManager.roomno >= 37) && mapManager.facing == 'l'
 				&& !mapManager.gate)
 			g.setColor(Color.GREEN);
 		g.fillPolygon(drawings.currentforward);
@@ -134,6 +136,12 @@ public class dungeonPanel extends JPanel {
 					400, Image.SCALE_FAST);
 			g.drawImage(scaledImage, 0, 0, 500, 400, null);
 		}
+		else if(mapManager.roomno == 36 && mapManager.facing == 'l' && !mapManager.chest_open)
+			g.drawImage(imageManager.chest1, 175, 275, null);
+		else if(mapManager.roomno == 36  && mapManager.facing == 'l' && mapManager.chest_open)
+			g.drawImage(imageManager.chest2, 175, 250, null);
+		if(mapManager.key_get)
+			g.drawImage(imageManager.keyblade, 507, 5, null);
 		g.setColor(Color.RED);
 		g.drawRect(50, 0, 300, 50);
 		g.drawString("distance = " + polygonManager.distance, 60, 10);

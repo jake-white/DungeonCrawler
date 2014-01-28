@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.File;
 
 public class polygonManager {
@@ -77,7 +78,7 @@ public class polygonManager {
 		left_ext = false; right_ext = false; left_ext1 = false; right_ext1 = false; left_ext2 = false; right_ext2 = false;
 		if (distance == 0) {
 			length = 500;
-			height = 400;
+			height = 350;
 		}
 		if (distance == 1) {
 			length = 300;
@@ -119,20 +120,42 @@ public class polygonManager {
 				&& distance > 0 && !(mapManager.roomno == 18 && mapManager.facing == 'l' && mapManager.gate)) {
 			time = System.currentTimeMillis();
 			musicManager.soundeffect(new File ("resources/walk.wav"));
-			if(mapManager.advance == 1)
+			if(mapManager.advance == 1 || mapManager.advance == -8)
 			++mapManager.roomno;
 			else if(mapManager.advance == -2)
-				mapManager.roomno = 38;
+				mapManager.roomno = 34;
+			else if(mapManager.advance == -3)
+				mapManager.roomno = 9;
 			else if(mapManager.advance == -4)
-				mapManager.roomno = 39;
+				mapManager.roomno = 37;
+			else if(mapManager.advance == -6)
+				mapManager.roomno = 35;
+			else if(mapManager.advance == -7)
+				mapManager.roomno = 29;
+			else if(mapManager.advance == -10)
+				mapManager.roomno = 36;
+			else if(mapManager.advance == -9)
+				mapManager.roomno = 18;
+			else if(mapManager.advance == -11)
+				mapManager.roomno = 37;
 			else
 			--mapManager.roomno;
 		} else if (inputManager.input('s')
 				&& System.currentTimeMillis() > time + 300 && !mapManager.back) {
 			time = System.currentTimeMillis();
 			musicManager.soundeffect(new File ("resources/walk.wav"));
-			if(mapManager.advance == -1 || mapManager.advance == -2)
+			if(mapManager.advance == -1 || mapManager.advance == -2 || mapManager.advance == -7)
 			++mapManager.roomno;
+			else if(mapManager.advance == -5 && !mapManager.gate)
+				mapManager.roomno = 37;
+			else if(mapManager.advance == -6)
+				mapManager.roomno = 35;
+			else if(mapManager.advance == 3)
+				mapManager.roomno = 9;
+			else if(mapManager.advance == -8)
+				mapManager.roomno = 29;
+			else if(mapManager.advance == -11)
+				mapManager.roomno = 18;
 			else
 				--mapManager.roomno;
 		} else if (inputManager.input('a')
@@ -159,6 +182,17 @@ public class polygonManager {
 				mapManager.facing = 'l';
 			else if(mapManager.facing == 'r')
 				mapManager.facing = 'b';
+		}
+		if(mapManager.roomno == 36 && mapManager.facing == 'l' && !mapManager.chest_open && inputManager.spaceHandler(KeyEvent.VK_ENTER))
+		{
+			mapManager.chest_open = true;
+			mapManager.key_get = true;
+			musicManager.soundeffect(new File("resources/item.wav"));
+		}
+		if(mapManager.roomno == 18 && mapManager.facing == 'l' && mapManager.gate && mapManager.key_get && inputManager.spaceHandler(KeyEvent.VK_ENTER))
+		{
+			mapManager.gate = false;
+			musicManager.soundeffect(new File("resources/door.wav"));
 		}
 
 	}
