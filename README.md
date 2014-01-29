@@ -27,16 +27,18 @@ Done:
     Added gate & key system with BufferedImages
     
     Added "inventory" -- at this point, only for the key -- that displays in a sidebar
+    
+    Added turn-based battle system
 
 
 To Do:
-    
-    Implement turn-based battle System
 
-        Implement random encounters
+        Add extra stats: speed, luck (crits)?
+        
+        Add exp/leveling system - increasing maxhp, basedamage, speed, luck.
     
         Find/make enemies and images
     
         Implement final boss
 
-        Sound effects for battling?
+        Sound effects for battling
