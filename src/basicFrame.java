@@ -9,7 +9,7 @@ public class basicFrame {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		frame.setSize(547, 430);
+		frame.setSize(547, 530);
 		frame.setTitle("Dungeon Crawler");
 		frame.setLocation(5, 5);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

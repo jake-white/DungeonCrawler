@@ -7,8 +7,9 @@ public class polygonManager {
 	public static int length = 20;
 	public static int height = 10;
 	public static double time = 0;
-	public static int leftextension,rightextension;
-	public static boolean left_ext, right_ext, left_ext1, right_ext1, left_ext2, right_ext2;
+	public static int leftextension, rightextension;
+	public static boolean left_ext, right_ext, left_ext1, right_ext1,
+			left_ext2, right_ext2;
 
 	public static void init() {
 
@@ -34,48 +35,47 @@ public class polygonManager {
 	}
 
 	public static void update() {
-		int[] forward_xpoints = { 250 - length / 2 - leftextension, 250 + length / 2 + rightextension,
-				250 + length / 2 + rightextension, 250 - length / 2 - leftextension };
+		int[] forward_xpoints = { 250 - length / 2 - leftextension,
+				250 + length / 2 + rightextension,
+				250 + length / 2 + rightextension,
+				250 - length / 2 - leftextension };
 		int[] forward_ypoints = { 200 - height / 2, 200 - height / 2,
 				200 + height / 2, 200 + height / 2 };
-		int[] left_extpoints = {0, 100, 100, 0};
-		int[] left_extpoints1 = {100, 150, 150, 100};
-		int[] left_extpoints2 = {150, 175, 175, 150};
-		int[] right_extpoints = {500, 400, 400, 500};
-		int[] right_extpoints1 = {400, 350, 350, 400};
-		int[] right_extpoints2 = {350, 325, 325, 350};
+		int[] left_extpoints = { 0, 100, 100, 0 };
+		int[] left_extpoints1 = { 100, 150, 150, 100 };
+		int[] left_extpoints2 = { 150, 175, 175, 150 };
+		int[] right_extpoints = { 500, 400, 400, 500 };
+		int[] right_extpoints1 = { 400, 350, 350, 400 };
+		int[] right_extpoints2 = { 350, 325, 325, 350 };
 		drawings.currentforward = new Polygon(forward_xpoints, forward_ypoints,
 				4);
-		int[] ext_ypoints = {100, 100, 300, 300};
-		int[] ext_ypoints1 = {150, 150, 250, 250};
-		int[] ext_ypoints2 = {175, 175, 225, 225};
-		if(left_ext)
-		drawings.left_ext = new Polygon(left_extpoints, ext_ypoints,
-				4);
-		else if(left_ext1)
-			drawings.left_ext = new Polygon(left_extpoints1, ext_ypoints1,
-					4);
-		else if(left_ext2)
-			drawings.left_ext = new Polygon(left_extpoints2,ext_ypoints2,
-					4);
+		int[] ext_ypoints = { 100, 100, 300, 300 };
+		int[] ext_ypoints1 = { 150, 150, 250, 250 };
+		int[] ext_ypoints2 = { 175, 175, 225, 225 };
+		if (left_ext)
+			drawings.left_ext = new Polygon(left_extpoints, ext_ypoints, 4);
+		else if (left_ext1)
+			drawings.left_ext = new Polygon(left_extpoints1, ext_ypoints1, 4);
+		else if (left_ext2)
+			drawings.left_ext = new Polygon(left_extpoints2, ext_ypoints2, 4);
 		else
-			drawings.left_ext = new Polygon(left_extpoints1, ext_ypoints,
-					4);
-		if(right_ext)
-			drawings.right_ext = new Polygon(right_extpoints, ext_ypoints,
-					4);
-		else if(right_ext1)
-			drawings.right_ext = new Polygon(right_extpoints1, ext_ypoints1,
-					4);
-		else if(right_ext2)
-			drawings.right_ext = new Polygon(right_extpoints2, ext_ypoints2,
-					4);
+			drawings.left_ext = new Polygon(left_extpoints1, ext_ypoints, 4);
+		if (right_ext)
+			drawings.right_ext = new Polygon(right_extpoints, ext_ypoints, 4);
+		else if (right_ext1)
+			drawings.right_ext = new Polygon(right_extpoints1, ext_ypoints1, 4);
+		else if (right_ext2)
+			drawings.right_ext = new Polygon(right_extpoints2, ext_ypoints2, 4);
 		else
-			drawings.right_ext = new Polygon(right_extpoints1, ext_ypoints,
-					4);
+			drawings.right_ext = new Polygon(right_extpoints1, ext_ypoints, 4);
 		leftextension = 0;
 		rightextension = 0;
-		left_ext = false; right_ext = false; left_ext1 = false; right_ext1 = false; left_ext2 = false; right_ext2 = false;
+		left_ext = false;
+		right_ext = false;
+		left_ext1 = false;
+		right_ext1 = false;
+		left_ext2 = false;
+		right_ext2 = false;
 		if (distance == 0) {
 			length = 500;
 			height = 350;
@@ -83,114 +83,125 @@ public class polygonManager {
 		if (distance == 1) {
 			length = 300;
 			height = 200;
-			if(!mapManager.left)
+			if (!mapManager.left)
 				leftextension = 100;
-			if(!mapManager.right)
+			if (!mapManager.right)
 				rightextension = 100;
 		} else if (distance == 2) {
-			if(!mapManager.left1)
+			if (!mapManager.left1)
 				leftextension = 50;
-			if(!mapManager.right1)
+			if (!mapManager.right1)
 				rightextension = 50;
 			length = 200;
 			height = 100;
 		} else if (distance >= 3) {
-			if(!mapManager.left2)
+			if (!mapManager.left2)
 				leftextension = 25;
-			if(!mapManager.right2)
+			if (!mapManager.right2)
 				rightextension = 25;
 			length = 150;
 			height = 50;
 			length = 150;
 			height = 50;
-			if(!mapManager.left)
+			if (!mapManager.left)
 				left_ext = true;
-			if(!mapManager.right)
+			if (!mapManager.right)
 				right_ext = true;
-			if(!mapManager.left1 && distance > 3)
+			if (!mapManager.left1 && distance > 3)
 				left_ext1 = true;
-			if(!mapManager.right1 && distance > 3)
+			if (!mapManager.right1 && distance > 3)
 				right_ext1 = true;
-			if(!mapManager.left2 && distance > 3)
+			if (!mapManager.left2 && distance > 3)
 				left_ext2 = true;
-			if(!mapManager.right2 && distance > 3)
-				right_ext2 = true;			
+			if (!mapManager.right2 && distance > 3)
+				right_ext2 = true;
 		}
-		if (inputManager.input('w') && System.currentTimeMillis() > time + 300
-				&& distance > 0 && !(mapManager.roomno == 18 && mapManager.facing == 'l' && mapManager.gate)) {
+		if (inputManager.input('w')
+				&& System.currentTimeMillis() > time + 300
+				&& distance > 0
+				&& !(mapManager.roomno == 18 && mapManager.facing == 'l' && mapManager.gate)
+				&& !battleManager.encounter) {
 			time = System.currentTimeMillis();
-			musicManager.soundeffect(new File ("resources/walk.wav"));
-			if(mapManager.advance == 1 || mapManager.advance == -8)
-			++mapManager.roomno;
-			else if(mapManager.advance == -2)
+			musicManager.soundeffect(new File("resources/walk.wav"));
+			if (mapManager.advance == 1 || mapManager.advance == -8)
+				++mapManager.roomno;
+			else if (mapManager.advance == -2)
 				mapManager.roomno = 34;
-			else if(mapManager.advance == -3)
+			else if (mapManager.advance == -3)
 				mapManager.roomno = 9;
-			else if(mapManager.advance == -4)
+			else if (mapManager.advance == -4)
 				mapManager.roomno = 37;
-			else if(mapManager.advance == -6)
+			else if (mapManager.advance == -6)
 				mapManager.roomno = 35;
-			else if(mapManager.advance == -7)
+			else if (mapManager.advance == -7)
 				mapManager.roomno = 29;
-			else if(mapManager.advance == -10)
+			else if (mapManager.advance == -10)
 				mapManager.roomno = 36;
-			else if(mapManager.advance == -9)
+			else if (mapManager.advance == -9)
 				mapManager.roomno = 18;
-			else if(mapManager.advance == -11)
+			else if (mapManager.advance == -11)
 				mapManager.roomno = 37;
 			else
-			--mapManager.roomno;
+				--mapManager.roomno;
+			battleManager.randomEncounter();
 		} else if (inputManager.input('s')
-				&& System.currentTimeMillis() > time + 300 && !mapManager.back) {
+				&& System.currentTimeMillis() > time + 300 && !mapManager.back
+				&& !battleManager.encounter) {
 			time = System.currentTimeMillis();
-			musicManager.soundeffect(new File ("resources/walk.wav"));
-			if(mapManager.advance == -1 || mapManager.advance == -2 || mapManager.advance == -7)
-			++mapManager.roomno;
-			else if(mapManager.advance == -5 && !mapManager.gate)
+			musicManager.soundeffect(new File("resources/walk.wav"));
+			if (mapManager.advance == -1 || mapManager.advance == -2
+					|| mapManager.advance == -7)
+				++mapManager.roomno;
+			else if (mapManager.advance == -5 && !mapManager.gate)
 				mapManager.roomno = 37;
-			else if(mapManager.advance == -6)
+			else if (mapManager.advance == -6)
 				mapManager.roomno = 35;
-			else if(mapManager.advance == 3)
+			else if (mapManager.advance == 3)
 				mapManager.roomno = 9;
-			else if(mapManager.advance == -8)
+			else if (mapManager.advance == -8)
 				mapManager.roomno = 29;
-			else if(mapManager.advance == -11)
+			else if (mapManager.advance == -11)
 				mapManager.roomno = 18;
 			else
 				--mapManager.roomno;
+			battleManager.randomEncounter();
 		} else if (inputManager.input('a')
-				&& System.currentTimeMillis() > time + 500) {
+				&& System.currentTimeMillis() > time + 500
+				&& !battleManager.encounter) {
 			time = System.currentTimeMillis();
-			musicManager.soundeffect(new File ("resources/swoosh.wav"));
+			musicManager.soundeffect(new File("resources/swoosh.wav"));
 			if (mapManager.facing == 'f')
 				mapManager.facing = 'l';
 			else if (mapManager.facing == 'l')
 				mapManager.facing = 'b';
-			else if(mapManager.facing == 'b')
+			else if (mapManager.facing == 'b')
 				mapManager.facing = 'r';
-			else if(mapManager.facing == 'r')
+			else if (mapManager.facing == 'r')
 				mapManager.facing = 'f';
-		}else if (inputManager.input('d')
-				&& System.currentTimeMillis() > time + 500) {
+		} else if (inputManager.input('d')
+				&& System.currentTimeMillis() > time + 500
+				&& !battleManager.encounter) {
 			time = System.currentTimeMillis();
-			musicManager.soundeffect(new File ("resources/swoosh.wav"));
+			musicManager.soundeffect(new File("resources/swoosh.wav"));
 			if (mapManager.facing == 'f')
 				mapManager.facing = 'r';
 			else if (mapManager.facing == 'l')
 				mapManager.facing = 'f';
-			else if(mapManager.facing == 'b')
+			else if (mapManager.facing == 'b')
 				mapManager.facing = 'l';
-			else if(mapManager.facing == 'r')
+			else if (mapManager.facing == 'r')
 				mapManager.facing = 'b';
 		}
-		if(mapManager.roomno == 36 && mapManager.facing == 'l' && !mapManager.chest_open && inputManager.spaceHandler(KeyEvent.VK_ENTER))
-		{
+		if (mapManager.roomno == 36 && mapManager.facing == 'l'
+				&& !mapManager.chest_open
+				&& inputManager.spaceHandler(KeyEvent.VK_ENTER)) {
 			mapManager.chest_open = true;
 			mapManager.key_get = true;
 			musicManager.soundeffect(new File("resources/item.wav"));
 		}
-		if(mapManager.roomno == 18 && mapManager.facing == 'l' && mapManager.gate && mapManager.key_get && inputManager.spaceHandler(KeyEvent.VK_ENTER))
-		{
+		if (mapManager.roomno == 18 && mapManager.facing == 'l'
+				&& mapManager.gate && mapManager.key_get
+				&& inputManager.spaceHandler(KeyEvent.VK_ENTER)) {
 			mapManager.gate = false;
 			musicManager.soundeffect(new File("resources/door.wav"));
 		}

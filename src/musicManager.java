@@ -3,8 +3,10 @@ import java.io.*;
 import javax.sound.sampled.*;
 
 public class musicManager {
+	static Clip background = null;
+	static Clip effect = null;
+	static Clip battle = null;
 	public static void soundeffect(File location) {
-		Clip effect = null;
 		try {
 			effect = AudioSystem.getClip();
 			effect.open(AudioSystem.getAudioInputStream(location));
@@ -15,7 +17,6 @@ public class musicManager {
 	}
 	public static void background(File location)
 	{
-		Clip background = null;
 		try {
 			background = AudioSystem.getClip();
 			background.open(AudioSystem.getAudioInputStream(location));
@@ -23,5 +24,23 @@ public class musicManager {
 				| UnsupportedAudioFileException e) {
 		}
 		background.loop(Clip.LOOP_CONTINUOUSLY);
+	}
+	public static void battle(File location)
+	{
+		try {
+			battle = AudioSystem.getClip();
+			battle.open(AudioSystem.getAudioInputStream(location));
+		} catch (LineUnavailableException | IOException
+				| UnsupportedAudioFileException e) {
+		}
+		battle.loop(Clip.LOOP_CONTINUOUSLY);
+	}
+	public static void stopBackground()
+	{
+		background.stop();
+	}
+	public static void stopBattle()
+	{
+		battle.stop();
 	}
 }
