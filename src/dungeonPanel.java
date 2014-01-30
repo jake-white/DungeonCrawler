@@ -9,6 +9,7 @@ import javax.swing.*;
 public class dungeonPanel extends JPanel {
 	static JFrame refresh;
 	public Timer itimer = new Timer(30, new inputTimer());
+	private boolean debug = false, release;
 
 	public void paintComponent(Graphics g) {
 
@@ -157,15 +158,23 @@ public class dungeonPanel extends JPanel {
 			g.setFont(outputFont);
 			g.drawString(battleManager.output, 5, 420);
 			g.setColor(Color.RED);
-			g.fillRect(400, 412, (Math.round(battleManager.hp * 100)/battleManager.maxhp), 10);
+			g.fillRect(400, 412,
+					(Math.round(battleManager.hp * 100) / battleManager.maxhp),
+					10);
 			g.setColor(Color.BLACK);
 			g.drawRect(397, 409, 105, 15);
-			g.drawString(battleManager.hp + " / " + battleManager.maxhp, 397, 440);
+			g.drawString(battleManager.hp + " / " + battleManager.maxhp, 397,
+					440);
 			g.setColor(Color.BLUE);
-			g.fillRect(400, 462, Math.round((battleManager.mana * 100)/battleManager.maxmana), 10);
+			g.fillRect(
+					400,
+					462,
+					Math.round((battleManager.mana * 100)
+							/ battleManager.maxmana), 10);
 			g.setColor(Color.BLACK);
 			g.drawRect(397, 459, 105, 15);
-			g.drawString(battleManager.mana + " / " + battleManager.maxmana, 397, 490);
+			g.drawString(battleManager.mana + " / " + battleManager.maxmana,
+					397, 490);
 			if (battleManager.selected == 1)
 				g.setColor(Color.BLUE);
 			else
@@ -208,17 +217,39 @@ public class dungeonPanel extends JPanel {
 				g.setColor(Color.BLACK);
 			g.drawString("M-POTION", 115, 482);
 			g.setFont(smallFont);
+			if (battleManager.monster[battleManager.monsterType]
+					.equals("cactuar")) {
+				g.drawImage(imageManager.cactuar, 190, 270, 150, 150, null);
+			} else if (battleManager.monster[battleManager.monsterType]
+					.equals("bomb")) {
+				g.drawImage(imageManager.bomb, 180, 230, 150, 160, null);
+			} else if (battleManager.monster[battleManager.monsterType]
+					.equals("slime")) {
+				g.drawImage(imageManager.slime, 170, 260, 150, 150, null);
+			} else if (battleManager.monster[battleManager.monsterType]
+					.equals("imp")) {
+				g.drawImage(imageManager.imp, 170, 280, 150, 150, null);
+			}
 		}
-		g.setColor(Color.RED);
-		g.drawRect(50, 0, 300, 50);
-		g.drawString("distance = " + polygonManager.distance, 60, 10);
-		g.drawString("room# = " + mapManager.roomno, 140, 10);
-		g.drawString("facing = " + mapManager.facing, 220, 10);
-		g.drawString("advance = " + mapManager.advance, 60, 30);
-		g.drawString("gate = " + mapManager.gate, 150, 30);
-		g.drawString("encounter = " + battleManager.encounter, 230, 30);
-		g.drawString("hp = " + battleManager.hp, 340, 30);
-		g.drawString("maxhp = " + battleManager.maxhp, 390, 30);
+		if (inputManager.input('`') && release) {
+			debug = !debug;
+		}
+		if(inputManager.input('`'))
+			release = false;
+		else
+			release = true;
+		if (debug) {
+			g.setColor(Color.RED);
+			g.drawRect(50, 0, 300, 50);
+			g.drawString("distance = " + polygonManager.distance, 60, 10);
+			g.drawString("room# = " + mapManager.roomno, 140, 10);
+			g.drawString("facing = " + mapManager.facing, 220, 10);
+			g.drawString("advance = " + mapManager.advance, 60, 30);
+			g.drawString("gate = " + mapManager.gate, 150, 30);
+			g.drawString("encounter = " + battleManager.encounter, 230, 30);
+			g.drawString("hp = " + battleManager.hp, 340, 30);
+			g.drawString("maxhp = " + battleManager.maxhp, 390, 30);
+		}
 
 	}
 

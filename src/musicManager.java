@@ -38,9 +38,11 @@ public class musicManager {
 	public static void stopBackground()
 	{
 		background.stop();
+		background.close();
 	}
 	public static void stopBattle()
 	{
 		battle.stop();
+		battle.close();
 	}
 }
