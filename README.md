@@ -29,6 +29,8 @@ Done:
     Added "inventory" -- at this point, only for the key -- that displays in a sidebar
     
     Added turn-based battle system
+    
+    Added enemy images
 
 
 To Do:
@@ -36,8 +38,6 @@ To Do:
         Add extra stats: speed, luck (crits)?
         
         Add exp/leveling system - increasing maxhp, basedamage, speed, luck.
-    
-        Find/make enemies and images
     
         Implement final boss
 
