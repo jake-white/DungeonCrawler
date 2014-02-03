@@ -31,13 +31,15 @@ Done:
     Added turn-based battle system
     
     Added enemy images
+    
+    Added speed
+    
+    Added exp/leveling system and stats viewer
 
 
 To Do:
 
-        Add extra stats: speed, luck (crits)?
-        
-        Add exp/leveling system - increasing maxhp, basedamage, speed, luck.
+        Add luck?
     
         Implement final boss
 
