@@ -1,6 +1,10 @@
 DungeonCrawler
 ==============
-Author: /u/squirrelboy1225
+WARNING:
+LEAVE THE BEAR SLEEPING
+THIS CODE IS TO BE NEVER TOUCHED
+IT IS THE SPAWN OF SATAN
+DO NOT ENTER
 
 Description: Noobish 2D First-person dungeon crawler.
 
